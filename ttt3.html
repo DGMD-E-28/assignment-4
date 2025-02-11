@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Tic Tac Toe - Version 3 - Elizabeth Koch - DGMD E-28 Assignment 2</title>
+  <link rel="icon" href="assets/favicon/okf.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>Tic Tac Toe</h1>
+  <div class="theme-container">
+    <label class="theme-switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+    </label>
+    <span id="theme-icon">🌞</span>
+  </div>
+</header>
+<div class="turn-indicator">It's O's turn</div>
+<div class="board" id="board"></div>
+<div class="win-condition">No winner yet</div>
+<script src="scripts/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const board = document.getElementById("board");
+    const NUM_SQUARES = 9;
+    for (let i = 0; i < NUM_SQUARES; i++) {
+      let square = document.createElement("div");
+      square.classList.add("square");
+      square.dataset.index = i;
+      square.addEventListener("click", function() {
+        if (!this.textContent) {
+          this.textContent = "X";
+          alert(`Square ${this.dataset.index} clicked`);
+        }
+      });
+      board.appendChild(square);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* Base styles for light and dark modes */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #373737;
+    --link-color: #44b566;
+    --link-hover-color: #2f7a46;
+    --square-border-color: #373737;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Title Styling */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Board Styling */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    max-width: 320px;
+}
+
+/* Square Styling */
+.square {
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--square-border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.square:hover {
+    background-color: var(--link-hover-color);
+    color: var(--bg-color);
+}
+
+/* Turn Indicator and Win Condition Sections */
+.turn-indicator, .win-condition {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid var(--square-border-color);
+    width: 50%;
+    text-align: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --bg-color: #373737;
+    --text-color: #f1f1f1;
+    --square-border-color: white;
+}
+
+/* Theme Toggle Switch Container */
+.theme-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Theme Toggle Switch */
+.theme-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--square-border-color);
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    border: 2px solid var(--square-border-color);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    background-color: var(--link-color);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: var(--square-border-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Theme Toggle Icon */
+#theme-icon {
+    font-size: 1.5em;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 2px;
+    margin-right: 55px;
+}
