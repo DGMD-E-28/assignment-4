@@ -2,9 +2,13 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #373737;
-    --link-color: #44b566;
+    --link-color: #2f7a46;
     --link-hover-color: #2f7a46;
     --square-border-color: #373737;
+    --button-bg: #2f7a46;
+    --button-text: white;
+    --button-hover-bg: #2f7a46;
+    --button-shadow: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -61,6 +65,33 @@ h1 {
     border: 1px solid var(--square-border-color);
     width: 50%;
     text-align: center;
+}
+
+/* Improved Button Styling */
+button#startGame {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px var(--button-shadow);
+    text-transform: uppercase;
+}
+
+button#startGame:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px var(--button-shadow);
+}
+
+button#startGame:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 4px var(--button-shadow);
 }
 
 /* Dark Mode Styles */
